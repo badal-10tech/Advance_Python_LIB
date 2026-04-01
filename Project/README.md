@@ -9,9 +9,9 @@ The data sourced from [Luke Barousse's Python Course](https://lukebarousse.com/p
 Below are the questions I want to answer in my project:
 
 1. What are the skills most in demand for the top 3 most popular data roles?
-2. How are in-demand skills trending for Data Analysts?
-3. How well do jobs and skills pay for Data Analysts?
-4. What are the optimal skills for data analysts to learn? (High Demand AND High Paying)
+2. How are in-demand skills trending for Data Scientist?
+3. How well do jobs and skills pay for Data Scientist?
+4. What are the optimal skills for data scientist to learn? (High Demand AND High Paying)
 
 # Tools I Used
 
@@ -94,9 +94,9 @@ _Bar graph visualizing the salary for the top 3 data roles and their top 5 skill
 - Data Engineers require more specialized technical skills (AWS, Azure, Spark) compared to Data Analysts and Data Scientists who are expected to be proficient in more general data management and analysis tools (Excel, Tableau).
 - Python is a versatile skill, highly demanded across all three roles, but most prominently for Data Scientists (72%) and Data Engineers (65%).
 
-## 2. How are in-demand skills trending for Data Analysts?
+## 2. How are in-demand skills trending for Data Scientist?
 
-To find how skills are trending in 2023 for Data Analysts, I filtered data analyst positions and grouped the skills by the month of the job postings. This got me the top 5 skills of data analysts by month, showing how popular skills were throughout 2023.
+To find how skills are trending in 2023 for Data Scientist, I filtered data analyst positions and grouped the skills by the month of the job postings. This got me the top 5 skills of data scientist by month, showing how popular skills were throughout 2023.
 
 View my notebook with detailed steps here: [3_Skills_Trend](03_Skills_Trend.ipynb).
 
@@ -117,7 +117,7 @@ plt.show()
 
 ### Results
 
-![Trending Top Skills for Data Analysts in the US](images/Trending_Top_Skills_for_Data_Analysts_in_the_US.png)  
+![Trending Top Skills for Data Analysts in the US](images/Trending_Top_Skills_for_Data_Sceintist_in_the_US.png)  
 _Bar graph visualizing the trending top skills for data analysts in the US in 2023._
 
 ### Insights:
@@ -126,7 +126,7 @@ _Bar graph visualizing the trending top skills for data analysts in the US in 20
 - Excel experienced a significant increase in demand starting around September, surpassing both Python and Tableau by the end of the year.
 - Both Python and Tableau show relatively stable demand throughout the year with some fluctuations but remain essential skills for data analysts. Power BI, while less demanded compared to the others, shows a slight upward trend towards the year's end.
 
-## 3. How well do jobs and skills pay for Data Analysts?
+## 3. How well do jobs and skills pay for Data Scientist?
 
 To identify the highest-paying roles and skills, I only got jobs in the United States and looked at their median salary. But first I looked at the salary distributions of common data jobs like Data Scientist, Data Engineer, and Data Analyst, to get an idea of which jobs are paid the most.
 
@@ -156,7 +156,7 @@ _Box plot visualizing the salary distributions for the top 6 data job titles._
 
 - The median salaries increase with the seniority and specialization of the roles. Senior roles (Senior Data Scientist, Senior Data Engineer) not only have higher median salaries but also larger differences in typical salaries, reflecting greater variance in compensation as responsibilities increase.
 
-### Highest Paid & Most Demanded Skills for Data Analysts
+### Highest Paid & Most Demanded Skills for Data Scientist
 
 Next, I narrowed my analysis and focused only on data analyst roles. I looked at the highest-paid skills and the most in-demand skills. I used two bar charts to showcase these.
 
@@ -180,22 +180,22 @@ plt.show()
 
 Here's the breakdown of the highest-paid & most in-demand skills for data analysts in the US:
 
-![The Highest Paid & Most In-Demand Skills for Data Analysts in the US](images/Highest_Paid_and_Most_In_Demand_Skills_for_Data_Analysts_in_the_US.png)
+![The Highest Paid & Most In-Demand Skills for Data Analysts in the US](images/Highest_Paid_and_Most_In_Demand_Skills_for_Data_Scientist_in_the_US.png)
 _Two separate bar graphs visualizing the highest paid skills and most in-demand skills for data analysts in the US._
 
 #### Insights:
 
-- The top graph shows specialized technical skills like `dplyr`, `Bitbucket`, and `Gitlab` are associated with higher salaries, some reaching up to $200K, suggesting that advanced technical proficiency can increase earning potential.
+- The top graph shows specialized technical skills like `Asana`, `Airtable`, and `Watson` are associated with higher salaries, some reaching up to $200K, suggesting that advanced technical proficiency can increase earning potential.
 
-- The bottom graph highlights that foundational skills like `Excel`, `PowerPoint`, and `SQL` are the most in-demand, even though they may not offer the highest salaries. This demonstrates the importance of these core skills for employability in data analysis roles.
+- The bottom graph highlights that foundational skills like `Tensorflow`, `Spark`, and `SQL` are the most in-demand, even though they may not offer the highest salaries. This demonstrates the importance of these core skills for employability in data analysis roles.
 
 - There's a clear distinction between the skills that are highest paid and those that are most in-demand. Data analysts aiming to maximize their career potential should consider developing a diverse skill set that includes both high-paying specialized skills and widely demanded foundational skills.
 
-## 4. What are the most optimal skills to learn for Data Analysts?
+## 4. What are the most optimal skills to learn for Data Scientist?
 
 To identify the most optimal skills to learn ( the ones that are the highest paid and highest in demand) I calculated the percent of skill demand and the median salary of these skills. To easily identify which are the most optimal skills to learn.
 
-View my notebook with detailed steps here: [5_Optimal_Skills](5_Optimal_Skills.ipynb).
+View my notebook with detailed steps here: [5_Optimal_Skills](05_Optimal_Skills.ipynb).
 
 #### Visualize Data
 
@@ -203,14 +203,14 @@ View my notebook with detailed steps here: [5_Optimal_Skills](5_Optimal_Skills.i
 from adjustText import adjust_text
 import matplotlib.pyplot as plt
 
-plt.scatter(df_DA_skills_high_demand['skill_percent'], df_DA_skills_high_demand['median_salary'])
+plt.scatter(df_DS_skills_high_demand['skill_percent'], df_DS_skills_high_demand['median_salary'])
 plt.show()
 
 ```
 
 #### Results
 
-![Most Optimal Skills for Data Analysts in the US](images/Most_Optimal_Skills_for_Data_Analysts_in_the_US.png)  
+![Most Optimal Skills for Data Scientist in the US](images/Most_Optimal_Skills_for_Data_Scientist_in_the_US.png)  
 _A scatter plot visualizing the most optimal skills (high paying & high demand) for data analysts in the US._
 
 #### Insights:
@@ -232,7 +232,7 @@ from matplotlib.ticker import PercentFormatter
 
 # Create a scatter plot
 scatter = sns.scatterplot(
-    data=df_DA_skills_tech_high_demand,
+    data=df_DS_skills_tech_high_demand,
     x='skill_percent',
     y='median_salary',
     hue='technology',  # Color by technology
@@ -245,7 +245,7 @@ plt.show()
 
 #### Results
 
-![Most Optimal Skills for Data Analysts in the US with Coloring by Technology](images/Most_Optimal_Skills_for_Data_Analysts_in_the_US_with_Coloring_by_Technology.png)  
+![Most Optimal Skills for Data Analysts in the US with Coloring by Technology](images/Most_Optimal_Skills_for_Data_Scientist_in_the_US_with_Coloring_by_Technology.png)  
 _A scatter plot visualizing the most optimal skills (high paying & high demand) for data analysts in the US with color labels for technology._
 
 #### Insights:
